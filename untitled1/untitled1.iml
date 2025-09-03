@@ -1,0 +1,5 @@
+nome = "marcos"
+idade = 21
+altura = 1.80
+
+print()
