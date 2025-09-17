@@ -1,4 +1,4 @@
-package com.br.pdvpostocombustivel.domain.entity;
+package com.br.pdvpostocombustivel.api.domain.entity;
 
 public class Produto {
 
