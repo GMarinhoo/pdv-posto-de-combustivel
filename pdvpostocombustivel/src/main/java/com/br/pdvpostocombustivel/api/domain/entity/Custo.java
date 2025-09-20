@@ -1,13 +1,29 @@
 package com.br.pdvpostocombustivel.api.domain.entity;
 
+import jakarta.persistence.*;
+
 import java.util.Date;
 
+@Entity
+@Table(name = "custo")
 public class Custo {
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    private Long id;
 
+    @Column(nullable = false)
     private Double imposto;
+
+    @Column(nullable = false)
     private Double custoVariavel;
+
+    @Column(nullable = false)
     private Double custoFixo;
+
+    @Column(nullable = false)
     private Double margemLucro;
+
+    @Column(nullable = false)
     private Date dataProcessamento;
 
     public Custo (Double imposto, Double custoVariavel, Double custoFixo, Double margemLucro, Date dataProcessamento) {
@@ -16,6 +32,14 @@ public class Custo {
         this.custoFixo = custoFixo;
         this.margemLucro = margemLucro;
         this.dataProcessamento = dataProcessamento;
+    }
+
+    public Custo () {
+
+    }
+
+    public Long getId () {
+        return id;
     }
 
     public Double getImposto () {
@@ -56,5 +80,9 @@ public class Custo {
 
     public void setDataProcessamento(Date dataProcessamento) {
         this.dataProcessamento = dataProcessamento;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 }

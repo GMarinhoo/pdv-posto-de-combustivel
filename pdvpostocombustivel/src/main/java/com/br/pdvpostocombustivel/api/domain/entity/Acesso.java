@@ -1,8 +1,18 @@
 package com.br.pdvpostocombustivel.api.domain.entity;
 
-public class Acesso {
+import jakarta.persistence.*;
 
+@Entity
+@Table(name = "acesso")
+public class Acesso {
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    private Long id;
+
+    @Column(length = 50, nullable = false)
     private String usuario;
+
+    @Column(length = 10, nullable = false)
     private String senha;
 
     public Acesso (String usuario, String senha) {
@@ -10,19 +20,35 @@ public class Acesso {
         this.senha = senha;
     }
 
+    public Acesso () {
+
+    }
+
+    public Long getId() {
+        return id;
+    }
+
     public String getUsuario () {
+
         return usuario;
     }
 
     public String getSenha () {
+
         return senha;
     }
 
     public void setUsuario (String usuario) {
+
         this.usuario = usuario;
     }
 
     public void setSenha (String senha) {
+
         this.senha = senha;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 }

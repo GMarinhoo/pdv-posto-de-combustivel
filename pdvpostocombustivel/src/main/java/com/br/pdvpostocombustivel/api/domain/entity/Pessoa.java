@@ -1,13 +1,11 @@
 package com.br.pdvpostocombustivel.api.domain.entity;
 
+import com.br.pdvpostocombustivel.api.enums.TipoPessoa;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.Past;
-import jakarta.websocket.OnMessage;
 
 import java.time.LocalDate;
 
@@ -19,31 +17,33 @@ public class Pessoa {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
 
-    @Column(length = 200, nullable = false)
+    @Column(name = "nome_completo",length = 200, nullable = false)
     private String nomeCompleto;
 
-    @Column(length = 14, nullable = false)
-    private String cpfCnpf;
+    @Column(name = "cpf_cnpj", length = 14, nullable = false)
+    private String cpfCnpj;
 
-    @Column(length = 12)
-    private LocalDate dataNascimento;
-
-    @Column(length = 10, nullable = false)
+    @Column(name = "numero_ctps", length = 10, nullable = false)
     private Long numeroCtps;
 
-    // contrutores
+    @Column(name= "data_nascimento", length = 12)
+    private LocalDate dataNascimento;
 
-    public Pessoa (String nomeCompleto, String cpfCmpf, LocalDate dataNascimento, Long numeroCtps) {
+    @Enumerated(EnumType.STRING)
+    @Column(name = "tipo pessoa", nullable = false, length = 15)
+    private TipoPessoa tipoPessoa;
+
+    public Pessoa (String nomeCompleto, String cpfCnpj, LocalDate dataNascimento, Long numeroCtps, TipoPessoa tipoPessoa) {
         this.nomeCompleto = nomeCompleto;
-        this.cpfCnpf = cpfCmpf;
-        this.dataNascimento = dataNascimento;
+        this.cpfCnpj = cpfCnpj;
         this.numeroCtps = numeroCtps;
+        this.dataNascimento = dataNascimento;
+        this.tipoPessoa = tipoPessoa;
     }
 
     public Pessoa () {
 
     }
-    // getters
 
     public Long getId () {
         return id;
@@ -53,37 +53,43 @@ public class Pessoa {
         return nomeCompleto;
     }
 
-    public String getCpfCnpf () {
-        return cpfCnpf;
+    public String getCpfCnpj () {
+        return cpfCnpj;
+    }
+
+    public Long getNumeroCtps () {
+        return numeroCtps;
     }
 
     public LocalDate getDataNascimento() {
         return dataNascimento;
     }
 
-    public Long getNumeroCtps() {
-        return numeroCtps;
+    public TipoPessoa getTipoPessoa() {
+        return tipoPessoa;
     }
 
-    // setters
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public void setNomeCompleto(String nomeCompleto) {
         this.nomeCompleto = nomeCompleto;
     }
 
-    public void setCpfCnpf(String cpfCnpf) {
-        this.cpfCnpf = cpfCnpf;
-    }
-
-    public void setDataNascimento(LocalDate dataNascimento) {
-        this.dataNascimento = dataNascimento;
+    public void setCpfCnpj(String cpfCnpj) {
+        this.cpfCnpj = cpfCnpj;
     }
 
     public void setNumeroCtps(Long NumeroCtps) {
         this.numeroCtps = numeroCtps;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setDataNascimento(LocalDate dataNascimento) {
+        this.dataNascimento = dataNascimento;
+    }
+
+    public void setTipoPessoa(TipoPessoa tipoPessoa) {
+        this.tipoPessoa = tipoPessoa;
     }
 }
