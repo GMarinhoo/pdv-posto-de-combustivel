@@ -14,6 +14,7 @@ import java.time.LocalDate;
                 @UniqueConstraint(name = "uk_pessoas_cpf_cnpj", columnNames = "cpf_cnpj")
         }
 )
+
 public class Pessoa {
 
     @Id
