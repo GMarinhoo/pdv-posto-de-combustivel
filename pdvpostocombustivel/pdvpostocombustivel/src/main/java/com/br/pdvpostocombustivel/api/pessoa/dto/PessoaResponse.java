@@ -1,4 +1,4 @@
-package com.br.pdvpostocombustivel.pessoa.dto;
+package com.br.pdvpostocombustivel.api.pessoa.dto;
 
 import java.time.LocalDate;
 

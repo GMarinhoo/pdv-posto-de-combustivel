@@ -1,6 +1,6 @@
-package com.br.pdvpostocombustivel.pessoa.dto;
+package com.br.pdvpostocombustivel.api.pessoa.dto;
 
-public record ProdutoRequest(
+public record ProdutoResponse(
         String nome,
         String referencia,
         String fornecedor,
