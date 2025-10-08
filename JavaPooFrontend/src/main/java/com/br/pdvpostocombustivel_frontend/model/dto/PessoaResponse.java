@@ -1,14 +1,13 @@
-package com.br.pdvpostocombustivel.api.pessoa.dto;
+package com.br.dto;
 
+import com.br.pdvpostocombustivel_frontend.model.enums.TipoPessoa;
 import java.time.LocalDate;
-import com.br.pdvpostocombustivel.enums.TipoPessoa;
 
-// Para resposta
 public record PessoaResponse(
         Long id,
         String nomeCompleto,
         String cpfCnpj,
         Long numeroCtps,
-        LocalDate dataNascimento
+        LocalDate dataNascimento,
         TipoPessoa tipoPessoa
 ) {}
