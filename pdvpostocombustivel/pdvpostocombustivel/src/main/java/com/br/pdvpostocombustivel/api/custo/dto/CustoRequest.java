@@ -1,6 +1,5 @@
-package com.br.pdvpostocombustivel.api.pessoa.dto;
+package com.br.pdvpostocombustivel.api.custo.dto;
 
-import org.springframework.format.annotation.DateTimeFormat;
 import java.util.Date;
 
 public record CustoRequest(
@@ -8,6 +7,6 @@ public record CustoRequest(
         Double custoVariavel,
         Double custoFixo,
         Double margemLucro,
-        Date dataprocessameto
+        Date dataProcessameto
 ) {
 }

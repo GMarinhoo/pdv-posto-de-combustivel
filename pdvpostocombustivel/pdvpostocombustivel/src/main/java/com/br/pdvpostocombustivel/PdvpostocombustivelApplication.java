@@ -23,7 +23,7 @@ import io.swagger.v3.oas.annotations.servers.Server;
                 @Server(url = "http://localhost:8080", description = "Ambiente Local")
         }
 )
-public class PdvpostocombustivelApplication {
+public class    PdvpostocombustivelApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(PdvpostocombustivelApplication.class, args);

@@ -38,7 +38,7 @@ public class Contato {
     }
 
     public String getEmail () {
-        return telefone;
+        return email;
     }
 
     public String getEndereco () {
