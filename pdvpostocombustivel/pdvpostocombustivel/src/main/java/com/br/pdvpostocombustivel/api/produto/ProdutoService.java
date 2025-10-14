@@ -27,7 +27,8 @@ public class ProdutoService {
                 req.referencia(),
                 req.fornecedor(),
                 req.categoria(),
-                req.marca()
+                req.marca(),
+                req.tipoProduto()
         );
         repository.save(produto);
         return toResponse(produto);
@@ -75,7 +76,8 @@ public class ProdutoService {
                 produto.getReferencia(),
                 produto.getFornecedor(),
                 produto.getCategoria(),
-                produto.getMarca()
+                produto.getMarca(),
+                produto.getTipo()
         );
     }
 }

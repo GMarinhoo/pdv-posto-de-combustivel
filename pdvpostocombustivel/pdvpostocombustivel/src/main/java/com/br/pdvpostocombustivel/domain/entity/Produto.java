@@ -1,6 +1,8 @@
 package com.br.pdvpostocombustivel.domain.entity;
 
+import com.br.pdvpostocombustivel.enums.TipoProduto;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "produto")
@@ -24,12 +26,18 @@ public class Produto {
     @Column(length = 50, nullable = false)
     private String marca;
 
-    public Produto (String nome, String referencia, String fornecedor, String categoria, String marca) {
+    @NotNull
+    @Enumerated(EnumType.STRING)
+    @Column(name = "tipo_combustivel", nullable = false)
+    private TipoProduto tipo;
+
+    public Produto (String nome, String referencia, String fornecedor, String categoria, String marca, TipoProduto tipo) {
         this.nome = nome;
         this.referencia = referencia;
         this.fornecedor = fornecedor;
         this.categoria = categoria;
         this.marca = marca;
+        this.tipo = tipo;
     }
 
     public Produto () {
@@ -60,6 +68,10 @@ public class Produto {
         return marca;
     }
 
+    public TipoProduto getTipo() {
+        return tipo;
+    }
+
     public void setNome (String nome) {
         this.nome = nome;
     }
@@ -82,5 +94,9 @@ public class Produto {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public void setTipo(TipoProduto tipo) {
+        this.tipo = tipo;
     }
 }

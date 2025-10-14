@@ -1,8 +1,9 @@
 package com.br.pdvpostocombustivel.api.acesso.dto;
 
-import org.springframework.format.annotation.DateTimeFormat;
+import com.br.pdvpostocombustivel.enums.TipoAcesso;
 
 public record AcessoRequest(
         String usuiario,
-        String senha)
+        String senha,
+        TipoAcesso perfil)
 {}
